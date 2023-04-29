@@ -20,9 +20,12 @@ provider "aws" {
 }
 
 # Configure the route 53
-resource "aws_route53_zone" "primary" {
+data "aws_route53_zone" "selected" {
   name = "dojo.padok.school"
 }
-data "aws_lb" "padok-dojo-lb" {
-  name = padok-dojo-lb
+
+# Configure the load balancer
+resource "aws_lb" "lb" {
+  name = "padok-dojo-lb"
+  
 }
