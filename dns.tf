@@ -1,6 +1,11 @@
+resource "aws_route53_zone" "primary" {
+  name = "blblbly-app.dojo.padok.school"
+}
+
 resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.primary.Z0951853F6JFBYEVJC2P
-  name    = "www.blblbly.com"
+  zone_id = aws_route53_zone.primary.id
+  id = Z0951853F6JFBYEVJC2P
+  name    = "www.blblbly-app.dojo.padok.school"
   type    = "CNAME"
   ttl     = 300
   records = [padok-dojo-lb-1534647425.eu-west-3.elb.amazonaws.com]
