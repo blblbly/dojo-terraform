@@ -1,5 +1,9 @@
+variable "zone_name" {
+  type = string
+}
+
 data "aws_route53_zone" "www" {
-  name = local.{zone_name}
+  name = local.zone_name
 }
 
 
