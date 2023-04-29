@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "> 4.0.0"
+      version = "~> 4.0"
     }
   }
 }
@@ -17,15 +17,4 @@ provider "aws" {
         User = "<blblbly>"
     }
   }
-}
-
-# Configure the route 53
-data "aws_route53_zone" "selected" {
-  name = "dojo.padok.school"
-}
-
-# Configure the load balancer
-resource "aws_lb" "lb" {
-  name = "padok-dojo-lb"
-  
 }
