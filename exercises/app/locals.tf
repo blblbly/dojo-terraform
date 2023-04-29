@@ -1,0 +1,8 @@
+locals {
+    applications = {
+         frontend = "" 
+
+
+         backend = ""
+    }
+}

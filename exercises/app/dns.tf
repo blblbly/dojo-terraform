@@ -1,11 +1,16 @@
-resource "aws_route53_zone" "secondary" {
-  name = "blblbly-app.dojo.padok.school"
+data "aws_route53_zone" "selected" {
+  name         = "dojo.padok.school"
+  private_zone = false
 }
 
+data "aws_lb" "test" {
+  name = "padok-dojo-lb"
+} 
+
 resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.secondary.id
+  zone_id = data.aws_route53_zone.selected.zone_id
   name    = "www.blblbly-app.dojo.padok.school"
   type    = "CNAME"
   ttl     = 300
-  records = ["padok-dojo-lb-1534647425.eu-west-3.elb.amazonaws.com"]
-}
+  records = [data.aws_lb.test.dns_name]
+} 
