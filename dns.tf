@@ -1,5 +1,5 @@
 data "aws_route53_zone" "www" {
-  name = local.zone_name
+  name = var.zone_name
 }
 
 data "aws_lb" "dojo" {
