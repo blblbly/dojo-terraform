@@ -1,9 +1,9 @@
-resource "aws_route53_zone" "primary" {
+resource "aws_route53_zone" "secondary" {
   name = "blblbly-app.dojo.padok.school"
 }
 
 resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.primary.id
+  zone_id = aws_route53_zone.secondary.id
   name    = "www.blblbly-app.dojo.padok.school"
   type    = "CNAME"
   ttl     = 300
