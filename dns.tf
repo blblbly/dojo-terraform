@@ -1,6 +1,7 @@
 data "aws_route53_zone" "www" {
-  name = var.zone_name
+  name = local.{zone_name}
 }
+
 
 data "aws_lb" "dojo" {
   name = "padok-dojo-lb"
